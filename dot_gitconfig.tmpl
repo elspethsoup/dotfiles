@@ -19,10 +19,10 @@
 [pull]
   rebase = true
 
-{{ if .work -}}
-[maintenance]
-  repo = /Users/mcampbell/world/trees/root/src
-{{- end }}
+# {{ if .work -}}
+# [maintenance]
+# repo = /Users/mcampbell/world/trees/root/src
+# {{- end }}
 {{ if not .spin -}}
 [filter "lfs"]
   smudge = git-lfs smudge -- %f

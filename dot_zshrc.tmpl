@@ -62,11 +62,9 @@ if type chezmoi &>/dev/null; then
   fi
 fi
 
-{{ if not .work -}}
 if [[ -a "${HOME}/.1password/agent.sock" ]]; then
   export SSH_AUTH_SOCK="${HOME}/.1password/agent.sock"
 fi
-{{ end -}}
 
 # Options
 
