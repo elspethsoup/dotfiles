@@ -41,10 +41,10 @@ zstyle :omz:plugins:keychain options --quiet
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(direnv asdf brew 1password golang copyfile copypath gh gem rake rake-fast git-escape-magic soupmatt vi-mode iterm2 keychain)
+plugins=(direnv asdf brew 1password golang copyfile copypath gh gem rake rake-fast git-escape-magic soupmatt vi-mode iterm2 keychain terraform redis-cli)
 
 {{ if not .work -}}
-plugins+=(rbenv redis-cli terraform)
+plugins+=(rbenv)
 {{ end -}}
 
 {{- if eq .chezmoi.os "darwin" -}}
