@@ -81,9 +81,7 @@ export EDITOR=$VISUAL
 export ZSH_TMUX_UNICODE="true"
 
 {{ if .work -}}
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
-
-[ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
+export AWS_PROFILE=tax-platform-eng-gusto-main
 {{ end -}}
 
 export PATH=$PATH:$HOME/git-custom-commands
