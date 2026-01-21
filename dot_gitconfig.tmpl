@@ -28,6 +28,9 @@
 [user]
   name = {{ .name }}
   email = {{ .email }}
-[include]
-  path = {{ .chezmoi.homeDir }}/.config/dev/gitconfig
+  signingkey = {{ .chezmoi.homeDir }}/.ssh/id_ed25519.pub
+[commit]
+  gpgsign = true
+[gpg]
+  format = ssh
 {{- end }}
