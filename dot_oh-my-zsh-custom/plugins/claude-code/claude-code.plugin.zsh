@@ -5,6 +5,7 @@
 alias cc='claude'
 alias ccc='claude --continue'
 alias ccr='claude --resume'
+alias claude-yolo='claude --allow-dangerously-skip-permissions'
 
 # Completion
 function _claude() {
