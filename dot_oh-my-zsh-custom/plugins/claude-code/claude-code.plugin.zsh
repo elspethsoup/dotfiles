@@ -7,6 +7,31 @@ alias ccc='claude --continue'
 alias ccr='claude --resume'
 alias claude-yolo='claude --allow-dangerously-skip-permissions'
 
+# Bootstrap a new project workspace and launch claude with project context
+function new-project() {
+  local projects_dir="$HOME/workspace/projects"
+
+  # Snapshot existing projects before launching Claude
+  local before
+  before=$(ls "$projects_dir" 2>/dev/null | sort)
+
+  # Launch interactive Claude with wrapper skill (auto-approve all tools)
+  ( cd "$projects_dir" && claude "/new-project-setup" )
+
+  # Find the new project by diffing directory listing before/after
+  local after new_project
+  after=$(ls "$projects_dir" 2>/dev/null | sort)
+  new_project=$(comm -23 <(echo "$after") <(echo "$before") | head -1)
+
+  if [[ -z "$new_project" ]]; then
+    echo "new-project: no new project detected. Did you complete the skill and type /exit?" >&2
+    return 1
+  fi
+
+  cd "$projects_dir/$new_project"
+  claude --append-system-prompt-file CLAUDE.md
+}
+
 # Completion
 function _claude() {
   local -a subcommands
