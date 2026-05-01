@@ -14,7 +14,7 @@ const chromeApp = ({ id }) => ({
 
 {{ $apps := include "chrome_apps.yml" | fromYaml -}}
 {{ $homeDir := .chezmoi.homeDir -}}
-module.exports = {
+export default {
   defaultBrowser: "Google Chrome",
   handlers: [
   {{- range $appName, $hosts := $apps -}}
