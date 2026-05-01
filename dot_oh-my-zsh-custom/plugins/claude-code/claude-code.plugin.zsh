@@ -16,7 +16,7 @@ function new-project() {
   before=$(ls "$projects_dir" 2>/dev/null | sort)
 
   # Launch interactive Claude with wrapper skill (auto-approve all tools)
-  ( cd "$projects_dir" && claude "/new-project-setup" )
+  ( cd "$projects_dir" && claude --permission-mode=auto "/new-project-setup" )
 
   # Find the new project by diffing directory listing before/after
   local after new_project
